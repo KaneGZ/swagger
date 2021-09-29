@@ -1,34 +1,31 @@
-import React, {Component} from 'react';
-import PropTypes from 'prop-types';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
 
-import SwaggerUI, {presets} from 'swagger-ui';
-import 'swagger-ui/dist/swagger-ui.css';
+import SwaggerUI, { presets } from "swagger-ui";
+import "swagger-ui/dist/swagger-ui.css";
 
 class Swagger extends Component {
-
   componentDidMount() {
     SwaggerUI({
-      dom_id: '#swaggerContainer',
+      dom_id: "#swaggerContainer",
       url: this.props.url,
       spec: this.props.spec,
-      presets: [presets.apis]
+      presets: [presets.apis],
     });
   }
 
   render() {
-    return (
-      <div id="swaggerContainer" />
-    );
+    return <div id="swaggerContainer" />;
   }
 }
 
 Swagger.propTypes = {
   url: PropTypes.string,
-  spec: PropTypes.object
+  spec: PropTypes.object,
 };
 
 Swagger.defaultProps = {
-  url: `https://raw.githubusercontent.com/CX-Exchange/cx_peatio/main/docs/api/swagger.json`
+  url: `/swagger.json`,
 };
 
 export default Swagger;
